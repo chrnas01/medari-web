@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 
-interface CredibilityBandProps {
+export interface CredibilityBandProps {
   heading: string;
   body: string;
   quote?: { text: string; name: string; role: string };
