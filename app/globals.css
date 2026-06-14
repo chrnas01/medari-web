@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Design tokens — regenerated from DESIGN.md by `npm run design:build` */
+@import "../tailwind.theme.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+ * Medari brand extras — values that don't fit the DESIGN.md schema:
+ * the signature gradient, supporting brand-ramp colours, and the
+ * roster/scheduling status palette used by the product mock.
+ * The full gradient is reserved for brand moments only.
+ * ------------------------------------------------------------------------- */
+:root {
+  --brand-cyan: #15c2f0;
+  --brand-blue: #1565b5;
+  --brand-violet: #7a44b2;
+  --brand-magenta: #e51e78;
+
+  --brand-gradient: linear-gradient(100deg, #15c6f2 0%, #1c68b9 30%, #7a44b2 64%, #e51e78 100%);
+  --brand-wash: linear-gradient(135deg, #eaf7fd 0%, #eef2fc 42%, #f7ecf6 72%, #fceaf1 100%);
+
+  /* Supporting brand ramp colours referenced by the page */
+  --cyan-600: #0e9ec6;
+  --violet-500: #7a44b2;
+  --violet-600: #66369a;
+  --pink-500: #e51e78;
+  --green-600: #15835a;
+  --neutral-900: #1a212b;
+  --blue-700: #114f90;
+
+  /* Roster / scheduling status palette */
+  --status-confirmed: #15835a;
+  --status-confirmed-bg: #e7f6ee;
+  --status-confirmed-fg: #0f6646;
+  --status-open: #be7a12;
+  --status-open-bg: #fcf1dd;
+  --status-open-fg: #93600f;
+  --status-pending: #1565b5;
+  --status-pending-bg: #edf4fb;
+  --status-pending-fg: #114f90;
+}
+
+/* Map Tailwind font utilities to the next/font families loaded in layout.tsx */
+@theme inline {
+  --font-sans: var(--font-hanken), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-hanken), system-ui, sans-serif;
+  --font-mono: var(--font-plex), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv01" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background: #fbd1e1;
+    color: #790d3e;
+  }
+}
+
+@layer components {
+  /* Brand gradient helpers — brand moments only */
+  .brand-gradient {
+    background: var(--brand-gradient);
+  }
+  .brand-wash {
+    background: var(--brand-wash);
+  }
+  .brand-gradient-text {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* guard against background-clip:text dropping the final glyph */
+    padding-right: 0.06em;
+  }
+
+  /* Roster shift chip (product mock) */
+  .shift {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border-left: 3px solid var(--status-confirmed);
+    background: var(--status-confirmed-bg);
+    min-width: 0;
+  }
+  .shift__time {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--status-confirmed-fg);
+    font-variant-numeric: tabular-nums;
+  }
+  .shift__role {
+    font-size: 11px;
+    color: var(--color-muted-foreground);
+  }
+  .shift__name {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .shift--open {
+    background: var(--status-open-bg);
+    border: 1px dashed var(--status-open);
+    border-left-width: 3px;
+  }
+  .shift--open .shift__time {
+    color: var(--status-open-fg);
+  }
+  .shift--pending {
+    background: var(--status-pending-bg);
+    border-left-color: var(--status-pending);
+  }
+  .shift--pending .shift__time {
+    color: var(--status-pending-fg);
+  }
+
+  /* Status pill */
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .status::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .status--open {
+    background: var(--status-open-bg);
+    color: var(--status-open-fg);
+  }
+  .status--confirmed {
+    background: var(--status-confirmed-bg);
+    color: var(--status-confirmed-fg);
+  }
+}
