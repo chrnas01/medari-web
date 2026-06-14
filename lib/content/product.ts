@@ -9,6 +9,12 @@ export const PRODUCT = {
     eyebrow: "Product",
     title: "Workforce planning built around real demand",
     lead: "Medari helps healthcare organisations align workforce capacity, sessions and operational coverage with real demand. Stop relying on spreadsheets, guesswork and reactive decisions.",
+    videoLabel: "Product overview — 2 min",
+    videoNote: "Replace with the product demo video embed",
+  },
+  preview: {
+    imageLabel: "Medari — dashboard & insights",
+    imageNote: "Replace with a real product screenshot (≈16:9, 1600×900)",
   },
   problem: {
     eyebrow: "The problem",

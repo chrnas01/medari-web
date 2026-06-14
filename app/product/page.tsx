@@ -5,6 +5,7 @@ import { Section } from "@/components/marketing/Section";
 import { FeatureCard } from "@/components/marketing/FeatureCard";
 import { ComparisonTable } from "@/components/marketing/ComparisonTable";
 import { CtaBand } from "@/components/marketing/CtaBand";
+import { MediaPlaceholder } from "@/components/marketing/MediaPlaceholder";
 import { PRODUCT } from "@/lib/content/product";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/content/site";
 
@@ -17,7 +18,18 @@ export const metadata: Metadata = {
 export default function ProductPage() {
   return (
     <>
-      <Section eyebrow={PRODUCT.hero.eyebrow} title={PRODUCT.hero.title} lead={PRODUCT.hero.lead} className="pt-28" />
+      <Section eyebrow={PRODUCT.hero.eyebrow} title={PRODUCT.hero.title} lead={PRODUCT.hero.lead} className="pt-28">
+        <Reveal>
+          <div className="mx-auto max-w-[900px]">
+            <MediaPlaceholder
+              kind="video"
+              label={PRODUCT.hero.videoLabel}
+              note={PRODUCT.hero.videoNote}
+              aspect="16/9"
+            />
+          </div>
+        </Reveal>
+      </Section>
 
       <Section variant="tint" eyebrow={PRODUCT.problem.eyebrow} title={PRODUCT.problem.title} lead={PRODUCT.problem.lead}>
         <div className="mx-auto grid max-w-[820px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -29,7 +41,19 @@ export default function ProductPage() {
         </div>
       </Section>
 
-      <Section eyebrow={PRODUCT.what.eyebrow} title={PRODUCT.what.title} lead={PRODUCT.what.lead} />
+      <Section eyebrow={PRODUCT.what.eyebrow} title={PRODUCT.what.title} lead={PRODUCT.what.lead}>
+        <Reveal>
+          <div className="mx-auto max-w-[960px] rounded-2xl border border-border bg-card p-2 shadow-[0_8px_16px_rgba(20,33,51,0.08),0_24px_48px_rgba(20,33,51,0.14)]">
+            <MediaPlaceholder
+              kind="image"
+              label={PRODUCT.preview.imageLabel}
+              note={PRODUCT.preview.imageNote}
+              aspect="16/9"
+              className="rounded-xl border-0 bg-muted"
+            />
+          </div>
+        </Reveal>
+      </Section>
 
       <Section variant="tint" eyebrow={PRODUCT.capabilities.eyebrow} title={PRODUCT.capabilities.title}>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

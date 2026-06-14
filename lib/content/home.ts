@@ -37,6 +37,34 @@ export const HOME = {
     lead:
       "Medari connects directly to your practice management system and analyses historical activity, appointment demand, workforce availability and operational capacity — so you make smarter workforce decisions before problems occur. No spreadsheets. No guesswork. No reactive staffing. Just better planning.",
   },
+  preview: {
+    eyebrow: "Inside Medari",
+    title: "See your week before it happens",
+    lead:
+      "A live read on predicted demand, coverage gaps and team utilisation across your Practice — in one view.",
+    imageLabel: "Medari dashboard — demand forecast & coverage",
+    imageNote: "Replace with a real product screenshot (≈16:9, 1600×900)",
+  },
+  integration: {
+    eyebrow: "Works with your stack",
+    title: "Connected directly to Best Practice Software",
+    lead:
+      "No double handling. No manual exports. No duplicate data entry — Medari reads your real Practice activity and surfaces the workforce insights hidden inside it.",
+    logoLabel: "Best Practice Software logo",
+    points: [
+      "Secure, read-only connection",
+      "Set up in minutes",
+      "More integrations coming",
+    ],
+  },
+  video: {
+    eyebrow: "Watch",
+    title: "See Medari in action",
+    lead:
+      "A two-minute tour of demand forecasting, workforce visibility and demand-driven planning.",
+    videoLabel: "Product overview — 2 min",
+    videoNote: "Replace with the demo video embed (YouTube / Vimeo / MP4)",
+  },
   capabilities: {
     eyebrow: "What Medari helps you do",
     title: "Everything it takes to plan workforce around real demand",

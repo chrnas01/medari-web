@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/marketing/Section";
@@ -11,6 +12,7 @@ import { StatBand } from "@/components/marketing/StatBand";
 import { CredibilityBand } from "@/components/marketing/CredibilityBand";
 import { CtaBand } from "@/components/marketing/CtaBand";
 import { DemandCoverageMock } from "@/components/marketing/DemandCoverageMock";
+import { MediaPlaceholder } from "@/components/marketing/MediaPlaceholder";
 import { TRUST_NOTES } from "@/lib/content/site";
 import { HOME } from "@/lib/content/home";
 
@@ -62,6 +64,34 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Best Practice integration */}
+      <Section variant="white">
+        <Reveal>
+          <div className="grid items-center gap-8 rounded-2xl border border-border bg-card p-7 shadow-[0_1px_2px_rgba(20,33,51,0.06)] lg:grid-cols-[0.8fr_1fr] lg:gap-12 lg:p-10">
+            <MediaPlaceholder kind="logo" label={HOME.integration.logoLabel} aspect="3/2" />
+            <div>
+              <div className="mb-3 text-[13px] font-bold uppercase tracking-[0.07em] text-accent">
+                {HOME.integration.eyebrow}
+              </div>
+              <h2 className="text-[26px] font-extrabold leading-[1.12] tracking-[-0.02em] text-foreground sm:text-[30px]">
+                {HOME.integration.title}
+              </h2>
+              <p className="mt-3 text-[16px] leading-[1.6] text-muted-foreground">
+                {HOME.integration.lead}
+              </p>
+              <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+                {HOME.integration.points.map((p) => (
+                  <li key={p} className="inline-flex items-center gap-2 text-[14px] text-foreground/90">
+                    <Check className="h-[18px] w-[18px] shrink-0 text-[#15835a]" strokeWidth={2.5} />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
+
       {/* Planning problem */}
       <Section
         variant="tint"
@@ -75,8 +105,28 @@ export default function Home() {
       {/* Meet Medari */}
       <Section eyebrow={HOME.meet.eyebrow} title={HOME.meet.title} lead={HOME.meet.lead} />
 
+      {/* Product preview */}
+      <Section
+        variant="tint"
+        eyebrow={HOME.preview.eyebrow}
+        title={HOME.preview.title}
+        lead={HOME.preview.lead}
+      >
+        <Reveal>
+          <div className="mx-auto max-w-[960px] rounded-2xl border border-border bg-card p-2 shadow-[0_8px_16px_rgba(20,33,51,0.08),0_24px_48px_rgba(20,33,51,0.14)]">
+            <MediaPlaceholder
+              kind="image"
+              label={HOME.preview.imageLabel}
+              note={HOME.preview.imageNote}
+              aspect="16/9"
+              className="rounded-xl border-0 bg-muted"
+            />
+          </div>
+        </Reveal>
+      </Section>
+
       {/* Capabilities */}
-      <Section variant="tint" eyebrow={HOME.capabilities.eyebrow} title={HOME.capabilities.title}>
+      <Section eyebrow={HOME.capabilities.eyebrow} title={HOME.capabilities.title}>
         <div className="grid gap-5 md:grid-cols-3">
           {HOME.capabilities.items.map((c, i) => (
             <Reveal key={c.title} delay={i * 0.06}>
@@ -87,13 +137,32 @@ export default function Home() {
       </Section>
 
       {/* Comparison */}
-      <Section eyebrow={HOME.comparison.eyebrow} title={HOME.comparison.title}>
+      <Section variant="tint" eyebrow={HOME.comparison.eyebrow} title={HOME.comparison.title}>
         <ComparisonTable content={HOME.comparison.content} />
       </Section>
 
       {/* How it works */}
-      <Section variant="tint" eyebrow={HOME.how.eyebrow} title={HOME.how.title}>
+      <Section eyebrow={HOME.how.eyebrow} title={HOME.how.title}>
         <StepList steps={HOME.how.steps} />
+      </Section>
+
+      {/* Demo video */}
+      <Section
+        variant="tint"
+        eyebrow={HOME.video.eyebrow}
+        title={HOME.video.title}
+        lead={HOME.video.lead}
+      >
+        <Reveal>
+          <div className="mx-auto max-w-[860px]">
+            <MediaPlaceholder
+              kind="video"
+              label={HOME.video.videoLabel}
+              note={HOME.video.videoNote}
+              aspect="16/9"
+            />
+          </div>
+        </Reveal>
       </Section>
 
       {/* ROI */}
