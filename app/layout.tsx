@@ -28,9 +28,9 @@ const gabarito = Gabarito({
   display: "swap",
 });
 
-const TITLE = "Medari — Rostering for Australian medical practices";
+const TITLE = "Medari — Workforce planning for Australian medical practices";
 const DESCRIPTION =
-  "Medari builds your roster, fills open shifts in a tap, and turns worked hours into payroll-ready timesheets — so your practice runs on rhythm, not last-minute texts.";
+  "Medari helps Australian medical practices align workforce capacity with real demand — demand forecasting, intelligent workforce planning and Best Practice integration. Stop guessing staffing levels.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
