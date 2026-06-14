@@ -5,7 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SITE_NAME, SITE_URL } from "@/lib/constants";
+import { SITE_NAME, SITE_URL } from "@/lib/content/site";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({
