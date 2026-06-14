@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { FOOTER_LINKS } from "@/lib/constants";
-
-const COLUMNS = [
-  { heading: "Product", links: FOOTER_LINKS.product },
-  { heading: "Company", links: FOOTER_LINKS.company },
-  { heading: "Resources", links: FOOTER_LINKS.resources },
-] as const;
+import { FOOTER_COLUMNS, FOOTER_TAGLINE } from "@/lib/content/site";
 
 export function Footer() {
   return (
@@ -16,12 +10,10 @@ export function Footer() {
           <div>
             <Logo size={26} className="mb-3.5" />
             <p className="max-w-[260px] text-sm leading-[1.55] text-muted-foreground">
-              Workforce rostering and timesheeting built for Australian medical
-              practices.
+              {FOOTER_TAGLINE}
             </p>
           </div>
-
-          {COLUMNS.map((col) => (
+          {FOOTER_COLUMNS.map((col) => (
             <div key={col.heading}>
               <h4 className="mb-3.5 text-xs font-bold uppercase tracking-[0.06em] text-secondary">
                 {col.heading}
@@ -38,7 +30,6 @@ export function Footer() {
             </div>
           ))}
         </div>
-
         <div className="mt-10 flex flex-col gap-2 border-t border-border pt-5 text-[13px] text-secondary sm:flex-row sm:justify-between">
           <span>© {new Date().getFullYear()} Medari. Made in Australia.</span>
           <span>Privacy · Terms</span>

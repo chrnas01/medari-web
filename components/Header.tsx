@@ -6,7 +6,7 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Logo } from "@/components/Logo";
-import { NAV_ITEMS } from "@/lib/constants";
+import { NAV_ITEMS, PRIMARY_CTA, SECONDARY_CTA } from "@/lib/content/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -37,10 +37,10 @@ export function Header() {
             size="sm"
             className="text-foreground/80 hover:bg-muted hover:text-foreground"
           >
-            <Link href="#pricing">Log in</Link>
+            <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
           </Button>
           <Button asChild size="sm">
-            <Link href="#pricing">Book a demo</Link>
+            <Link href={PRIMARY_CTA.href}>{PRIMARY_CTA.label}</Link>
           </Button>
         </div>
 
@@ -70,14 +70,10 @@ export function Header() {
                 </nav>
                 <div className="flex flex-col gap-3 pt-2">
                   <Button asChild variant="secondary">
-                    <Link href="#pricing" onClick={() => setOpen(false)}>
-                      Log in
-                    </Link>
+                    <Link href={SECONDARY_CTA.href} onClick={() => setOpen(false)}>{SECONDARY_CTA.label}</Link>
                   </Button>
                   <Button asChild>
-                    <Link href="#pricing" onClick={() => setOpen(false)}>
-                      Book a demo
-                    </Link>
+                    <Link href={PRIMARY_CTA.href} onClick={() => setOpen(false)}>{PRIMARY_CTA.label}</Link>
                   </Button>
                 </div>
               </div>
