@@ -32,7 +32,14 @@ export function Footer() {
         </div>
         <div className="mt-10 flex flex-col gap-2 border-t border-border pt-5 text-[13px] text-secondary sm:flex-row sm:justify-between">
           <span>© {new Date().getFullYear()} Medari. Made in Australia.</span>
-          <span>Privacy · Terms</span>
+          <span className="flex gap-4">
+            <Link href="/privacy" className="transition-colors hover:text-foreground">
+              Privacy
+            </Link>
+            <Link href="/terms" className="transition-colors hover:text-foreground">
+              Terms
+            </Link>
+          </span>
         </div>
       </div>
     </footer>

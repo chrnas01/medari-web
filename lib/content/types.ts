@@ -39,3 +39,17 @@ export interface ComparisonContent {
   traditional: string[];
   medari: string[];
 }
+
+/** Long-form legal documents (privacy, terms) rendered by LegalPage. */
+export type LegalBlock =
+  | { type: "h2"; text: string }
+  | { type: "h3"; text: string }
+  | { type: "p"; text: string; lead?: string }
+  | { type: "ul"; items: string[] }
+  | { type: "contact"; entity: string; email: string; url: string };
+
+export interface LegalDoc {
+  title: string;
+  updated: string;
+  blocks: LegalBlock[];
+}
